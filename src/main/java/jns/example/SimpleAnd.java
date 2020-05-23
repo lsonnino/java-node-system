@@ -19,14 +19,16 @@ public class SimpleAnd {
 
         and1.connect(And.INPUT_1, input1, BooleanInput.OUTPUT);
         and1.connect(And.INPUT_2, input2, BooleanInput.OUTPUT);
-        and1.connect(And.INPUT_1, input3, BooleanInput.OUTPUT);
+        and2.connect(And.INPUT_1, input3, BooleanInput.OUTPUT);
         and2.connect(And.INPUT_2, and1, And.OUTPUT);
 
-        displayer1.connect(SystemOut.INPUT, and1, And.INPUT_1);
+        displayer1.connect(SystemOut.INPUT, and1, And.OUTPUT);
 
         nodeSystem.setRoot(displayer2);
 
+        System.out.println("Displayer 1 output:");
         nodeSystem.run(displayer1);
+        System.out.println("Displayer 2 output:");
         nodeSystem.run();
     }
 }

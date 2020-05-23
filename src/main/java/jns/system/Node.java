@@ -126,12 +126,12 @@ public abstract class Node implements Serializable {
     }
     public Data<?> in(IO requested){
         if(requested.getId() < 0 || requested.getId() >= this.inputNodes.length){
-            throw new ArrayIndexOutOfBoundsException("Invalid input " + requested.getId() + "(named: \'" + requested.getName() + "\')");
+            throw new ArrayIndexOutOfBoundsException("Invalid input " + requested.getId() + " (named: \'" + requested.getName() + "\')");
         }
 
         InputInterface inputInterface = this.inputNodes[requested.getId()];
         if(inputInterface == null){
-            throw new NodeRuntimeException("Disconnected input " + requested.getId() + "(named: \'" + requested.getName() + "\')");
+            throw new NodeRuntimeException("Disconnected input " + requested.getId() + " (named: \'" + requested.getName() + "\')");
         }
 
         Data data = inputInterface.inputNode.run(inputInterface.inputNodeOutput);
@@ -161,7 +161,7 @@ public abstract class Node implements Serializable {
     }
     public Data<?> property(IO requested){
         if(requested.getId() < 0 || requested.getId() >= this.propertiesData.length){
-            throw new ArrayIndexOutOfBoundsException("Invalid property " + requested.getId() + "(named: \'" + requested.getName() + "\')");
+            throw new ArrayIndexOutOfBoundsException("Invalid property " + requested.getId() + " (named: \'" + requested.getName() + "\')");
         }
 
         return this.propertiesData[requested.getId()];
@@ -183,7 +183,7 @@ public abstract class Node implements Serializable {
             }
         }
         if(!found)
-            throw new NodeRuntimeException("Cannot find output " + requested.getId() + "(named: \'" + requested.getName() + "\')");
+            throw new NodeRuntimeException("Cannot find output " + requested.getId() + " (named: \'" + requested.getName() + "\')");
 
         return runUnchecked(requested);
     }
