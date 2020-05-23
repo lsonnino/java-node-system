@@ -2,6 +2,10 @@ package jns.type;
 
 import jns.system.Data;
 
+/**
+ * Void data type
+ * Only has one state: null
+ */
 public class VoidData extends Data<Void> {
     public VoidData(){
         super(Void.class, null);

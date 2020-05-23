@@ -2,6 +2,12 @@ package jns.type;
 
 import jns.system.Data;
 
+/**
+ * Boolean based Data type
+ * It is compatible with any Data type based on Java's numbers (Integer, Double, ...) with the following conversion:
+ *      * true if the number is not 0
+ *      * false if the number is 0
+ */
 public class BooleanData extends Data<Boolean> {
     public BooleanData(){
         this(Boolean.FALSE);

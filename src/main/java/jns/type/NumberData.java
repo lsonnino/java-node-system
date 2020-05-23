@@ -2,6 +2,10 @@ package jns.type;
 
 import jns.system.Data;
 
+/**
+ * Generic number Data type
+ * It is based on Java's Double object and is compatible with any Data type based on Java's primitive types (Integer, ...)
+ */
 public class NumberData extends Data<Double> {
     public NumberData(){
         this(0);
