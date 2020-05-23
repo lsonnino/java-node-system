@@ -14,7 +14,7 @@ public class SystemOut extends Node {
     public SystemOut(NodeSystem nodeSystem) {
         super(
                 nodeSystem,
-                new IO[]{new IO(INPUT, Type.BOOLEAN)},
+                new IO[]{new IO(INPUT, Type.ANY)},
                 new IO[0],
                 new IO[0]
         );
