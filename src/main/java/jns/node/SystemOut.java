@@ -5,6 +5,13 @@ import jns.type.BooleanData;
 import jns.type.TypeSystem.Type;
 import jns.type.VoidData;
 
+/**
+ * Displays his input to the standard output
+ * Inputs:
+ *      * "Input": ObjectData
+ * Properties: None
+ * Outputs: None
+ */
 public class SystemOut extends OptimizedNode {
     public static final String INPUT = "Input";
 

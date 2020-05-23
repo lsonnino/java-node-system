@@ -4,6 +4,15 @@ import jns.system.*;
 import jns.type.BooleanData;
 import jns.type.TypeSystem.Type;
 
+/**
+ * AND gate node
+ * Inputs:
+ *      * "Input 1": BooleanData
+ *      * "Input 2": BooleanData
+ * Properties: None
+ * Outputs:
+ *      * "Output": BouleanData: is equal to INPUT_1 AND INPUT_2
+ */
 public class And extends OptimizedNode {
     public static final String INPUT_1 = "Input 1", INPUT_2 = "Input 2";
     public static final String OUTPUT = "Output";
