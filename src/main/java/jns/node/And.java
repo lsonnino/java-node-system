@@ -1,13 +1,10 @@
 package jns.node;
 
-import jns.system.Data;
-import jns.system.IO;
-import jns.system.Node;
-import jns.system.NodeSystem;
+import jns.system.*;
 import jns.type.BooleanData;
 import jns.type.TypeSystem.Type;
 
-public class And extends Node {
+public class And extends OptimizedNode {
     public static final String INPUT_1 = "Input 1", INPUT_2 = "Input 2";
     public static final String OUTPUT = "Output";
 

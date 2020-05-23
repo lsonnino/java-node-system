@@ -42,5 +42,7 @@ public class NodeSystem implements Serializable {
             throw new NodeRuntimeException("No root node");
 
         root.run();
+
+        root.reset();
     }
 }

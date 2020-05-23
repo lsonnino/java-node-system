@@ -1,14 +1,11 @@
 package jns.node;
 
-import jns.system.Data;
-import jns.system.IO;
-import jns.system.Node;
-import jns.system.NodeSystem;
+import jns.system.*;
 import jns.type.BooleanData;
 import jns.type.TypeSystem.Type;
 import jns.type.VoidData;
 
-public class SystemOut extends Node {
+public class SystemOut extends OptimizedNode {
     public static final String INPUT = "Input";
 
     public SystemOut(NodeSystem nodeSystem) {

@@ -200,6 +200,12 @@ public abstract class Node implements Serializable {
         return data;
     }
 
+    public void reset(){
+        for(InputInterface inputInterface : this.inputNodes){
+            inputInterface.inputNode.reset();
+        }
+    }
+
     private class InputInterface implements Serializable {
         Node inputNode;
         IO inputNodeOutput, inputIO;
