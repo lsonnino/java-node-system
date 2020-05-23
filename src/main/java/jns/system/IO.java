@@ -40,9 +40,7 @@ public class IO implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         IO io = (IO) o;
-        return id == io.id &&
-                Objects.equals(name, io.name) &&
-                type.equals(io.type);
+        return id == io.id;
     }
 
     @Override

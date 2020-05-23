@@ -7,8 +7,9 @@ import java.lang.reflect.ParameterizedType;
 
 public abstract class Data<T> implements Serializable {
     private T data;
+    private Class<T> tClass;
 
-    public Data(){
+    public Data(Class<T> tClass){
         try {
             Class<T> c = getType();
             Constructor<T> constructor = c.getConstructor();
@@ -20,9 +21,12 @@ public abstract class Data<T> implements Serializable {
         catch(InstantiationException | IllegalAccessException | InvocationTargetException exc){
             throw new DataException("Could not instantiate data to it's default value");
         }
+
+        this.tClass = tClass;
     }
-    public Data(T initialValue){
+    public Data(Class<T> tClass, T initialValue){
         this.data = initialValue;
+        this.tClass = tClass;
     }
 
     public static <X extends Data> X fromClass(Class<X> c){
@@ -39,7 +43,7 @@ public abstract class Data<T> implements Serializable {
     }
 
     public Class<T> getType(){
-        return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        return tClass;
     }
 
     public <E extends Data> void set(E obj){
@@ -53,6 +57,10 @@ public abstract class Data<T> implements Serializable {
     }
 
     public <E extends Data> T convert(E obj){
+        if(getType().isInstance(obj.get())){
+            return (T) obj.get();
+        }
+
         throw new DataException("Cannot convert " + obj.getType().getName() + " to " + this.getType().getName());
     }
 }

@@ -50,7 +50,7 @@ public abstract class Node implements Serializable {
         return null;
     }
     public IO getInput(int id){
-        if(id < 0 || id > this.inputs.length){
+        if(id < 0 || id >= this.inputs.length){
             return null;
         }
 
@@ -65,7 +65,7 @@ public abstract class Node implements Serializable {
         return null;
     }
     public IO getOutput(int id){
-        if(id < 0 || id > this.outputs.length){
+        if(id < 0 || id >= this.outputs.length){
             return null;
         }
 
@@ -80,13 +80,25 @@ public abstract class Node implements Serializable {
         return null;
     }
     public IO getProperty(int id){
-        if(id < 0 || id > this.properties.length){
+        if(id < 0 || id >= this.properties.length){
             return null;
         }
 
         return this.properties[id];
     }
 
+    public void connect(int input, Node node, int output){
+        this.connect(getInput(input), node, node.getOutput(output));
+    }
+    public void connect(String input, Node node, String output){
+        this.connect(getInput(input), node, node.getOutput(output));
+    }
+    public void connect(String input, Node node, int output){
+        this.connect(getInput(input), node, node.getOutput(output));
+    }
+    public void connect(int input, Node node, String output){
+        this.connect(getInput(input), node, node.getOutput(output));
+    }
     public void connect(IO input, Node node, IO output){
         this.inputNodes[input.getId()] = new InputInterface(input, node, output);
     }
@@ -122,7 +134,11 @@ public abstract class Node implements Serializable {
             throw new NodeRuntimeException("Disconnected input " + requested.getId() + "(named: \'" + requested.getName() + "\')");
         }
 
-        return inputInterface.inputNode.run(inputInterface.inputNodeOutput);
+        Data data = inputInterface.inputNode.run(inputInterface.inputNodeOutput);
+        Data out = Data.fromClass(this.system.getType(requested.getType()));
+        out.set(data.get());
+
+        return out;
     }
 
     public Data<?> property(int id) {

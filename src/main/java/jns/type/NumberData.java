@@ -7,7 +7,7 @@ public class NumberData extends Data<Double> {
         this(0);
     }
     public NumberData(double initialValue){
-        super(initialValue);
+        super(Double.class, initialValue);
     }
 
     @Override

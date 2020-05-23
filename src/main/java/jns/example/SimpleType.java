@@ -9,7 +9,7 @@ public class SimpleType extends Data<Integer> {
         this(0);
     }
     public SimpleType(int initialValue){
-        super(initialValue);
+        super(Integer.class, initialValue);
     }
 
     @Override

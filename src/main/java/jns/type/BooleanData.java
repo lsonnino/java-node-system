@@ -7,7 +7,7 @@ public class BooleanData extends Data<Boolean> {
         this(Boolean.FALSE);
     }
     public BooleanData(boolean initialValue){
-        super(initialValue);
+        super(Boolean.class, initialValue);
     }
 
     public <E extends Data> Boolean convert(E obj) {

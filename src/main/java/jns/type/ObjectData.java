@@ -7,7 +7,7 @@ public class ObjectData extends Data<Object> {
         this(null);
     }
     public ObjectData(Object obj){
-        super(obj);
+        super(Object.class, obj);
     }
 
     public <E extends Data> Object convert(E obj) {

@@ -5,7 +5,7 @@ public class DataException extends NodeRuntimeException {
         super();
     }
 
-    public DataException(String expectedValue) {
-        super("Expected value type \'" + expectedValue + "\'");
+    public DataException(String message) {
+        super(message);
     }
 }

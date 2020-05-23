@@ -4,10 +4,10 @@ import jns.system.Data;
 
 public class VoidData extends Data<Void> {
     public VoidData(){
-        super(null);
+        super(Void.class, null);
     }
     public VoidData(Object initialValue){
-        super(null);
+        super(Void.class, null);
     }
 
     public <E extends Data> Void convert(E obj) {
