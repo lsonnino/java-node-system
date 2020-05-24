@@ -13,9 +13,6 @@ import jns.type.TypeSystem.Type;
  *      * "Output": BooleanData: the same value as the "Value" property
  */
 public class BooleanInput extends BasicInput {
-    public static final String VALUE = "Value";
-    public static final String OUTPUT = "Output";
-
     public BooleanInput(NodeSystem nodeSystem) { // Empty node defining the property's initial value
         this(nodeSystem, false);
     }
@@ -23,6 +20,6 @@ public class BooleanInput extends BasicInput {
         super(nodeSystem, Type.BOOLEAN); // Defining the node based on Type.BOOLEAN type from the default type system
 
         // Setting the node's default value
-        property(VALUE).set(new BooleanData(initialValue));
+        property(BasicInput.VALUE).set(new BooleanData(initialValue));
     }
 }

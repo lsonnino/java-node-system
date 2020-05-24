@@ -1,27 +1,24 @@
 package jns.node;
 
 import jns.system.NodeSystem;
-import jns.type.BooleanData;
+import jns.type.NumberData;
 import jns.type.TypeSystem.Type;
 
 /**
- * A BooleanData output
+ * A NumberData output
  * Inputs: None
  * Properties:
- *      * "Value": BooleanData
+ *      * "Value": NumberData
  * Outputs:
- *      * "Output": BooleanData: the same value as the "Value" property
+ *      * "Output": NumberData: the same value as the "Value" property
  */
 public class NumberInput extends BasicInput {
-    public static final String VALUE = "Value";
-    public static final String OUTPUT = "Output";
-
     public NumberInput(NodeSystem nodeSystem) {
-        this(nodeSystem, false);
+        this(nodeSystem, 0);
     }
-    public NumberInput(NodeSystem nodeSystem, boolean initialValue) {
+    public NumberInput(NodeSystem nodeSystem, double initialValue) {
         super(nodeSystem, Type.NUMBER);
 
-        property(VALUE).set(new BooleanData(initialValue));
+        property(BasicInput.VALUE).set(new NumberData(initialValue));
     }
 }

@@ -11,6 +11,7 @@ public class TypeSystem {
         ANY,
         BOOLEAN,
         NUMBER,
+        STRING,
         ARRAY;
     }
 
@@ -20,6 +21,7 @@ public class TypeSystem {
             new jns.system.Type(Type.ANY, ObjectData.class),
             new jns.system.Type(Type.BOOLEAN, BooleanData.class),
             new jns.system.Type(Type.NUMBER, NumberData.class),
+            new jns.system.Type(Type.STRING, StringData.class),
             new jns.system.Type(Type.ARRAY, ArrayData.class)
     };
 }
