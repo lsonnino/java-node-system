@@ -1,8 +1,8 @@
-java-node-system
+# Java Node System
 
 
 
-**java-node-system** is a powerful, easy to use library to implement a node based system.
+**Java Node System** is a powerful, easy to use library to implement a node based system.
 
 
 
