@@ -25,10 +25,10 @@ public class SimpleAnd {
         SystemOut displayer2 = new SystemOut(nodeSystem, and2); // This one is already connected to the second AND gate's output
 
         // Connect the AND gates
-        and1.connect(And.INPUT_1, input1, BooleanInput.OUTPUT);
-        and1.connect(And.INPUT_2, input2, BooleanInput.OUTPUT);
-        and2.connect(And.INPUT_1, input3, BooleanInput.OUTPUT);
-        and2.connect(And.INPUT_2, and1, And.OUTPUT);
+        and1.connect(0, input1, BooleanInput.OUTPUT);
+        and1.connect(1, input2, BooleanInput.OUTPUT);
+        and2.connect(0, input3, BooleanInput.OUTPUT);
+        and2.connect(1, and1, And.OUTPUT);
 
         // Connect the first displayer (the second one is already connected via the constructor)
         displayer1.connect(SystemOut.INPUT, and1, And.OUTPUT);
