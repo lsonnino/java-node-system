@@ -25,7 +25,10 @@ public class MatrixData extends Data<Double[][]> {
         }
     }
     public MatrixData(double[][] initialValue){
-        super(Double[][].class, toObject(initialValue));
+        this(toObject(initialValue));
+    }
+    public MatrixData(Double[][] initialValue){
+        super(Double[][].class, initialValue);
     }
 
     public static Double[][] toObject(double[][] data){

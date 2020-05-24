@@ -23,7 +23,10 @@ public class ArrayData extends Data<Double[]> {
         }
     }
     public ArrayData(double[] initialValue){
-        super(Double[].class, toObject(initialValue));
+        this(toObject(initialValue));
+    }
+    public ArrayData(Double[] initialValue){
+        super(Double[].class, initialValue);
     }
 
     public static Double[] toObject(double[] data){
