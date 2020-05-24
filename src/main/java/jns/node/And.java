@@ -1,6 +1,6 @@
 package jns.node;
 
-import jns.system.*;
+        import jns.system.*;
 
 /**
  * AND gate node
@@ -18,7 +18,6 @@ public class And extends LogicGate {
     public And(NodeSystem nodeSystem) {
         this(nodeSystem, 2);
     }
-
     /**
      * Create an AND gate with any number of inputs
      * @param nodeSystem the node system in use
@@ -30,6 +29,8 @@ public class And extends LogicGate {
 
     @Override
     public boolean logic(boolean[] input) {
+        // The input array contains all the inputs in sequential order
+
         boolean result = true;
 
         for(boolean i : input){

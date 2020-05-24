@@ -1,10 +1,11 @@
 package jns.type;
 
 /**
- * The default NJS's Type System
+ * The default JNS's Type System
  */
 public class TypeSystem {
     // Defining the possible data types identifiers
+    // These identifiers will be used to reference data types
     public enum Type {
         VOID,
         ANY,
