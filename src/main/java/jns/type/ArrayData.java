@@ -8,6 +8,9 @@ import jns.system.DataException;
  * It is based on Java's Double Arrays object
  */
 public class ArrayData extends Data<Double[]> {
+    public ArrayData(){
+        this(0);
+    }
     public ArrayData(int length){
         this(new double[length]);
     }

@@ -12,7 +12,8 @@ public class TypeSystem {
         BOOLEAN,
         NUMBER,
         STRING,
-        ARRAY;
+        ARRAY,
+        MATRIX;
     }
 
     // Connecting the identifiers to the actual Data type classes
@@ -22,6 +23,7 @@ public class TypeSystem {
             new jns.system.Type(Type.BOOLEAN, BooleanData.class),
             new jns.system.Type(Type.NUMBER, NumberData.class),
             new jns.system.Type(Type.STRING, StringData.class),
-            new jns.system.Type(Type.ARRAY, ArrayData.class)
+            new jns.system.Type(Type.ARRAY, ArrayData.class),
+            new jns.system.Type(Type.MATRIX, ArrayData.class)
     };
 }
