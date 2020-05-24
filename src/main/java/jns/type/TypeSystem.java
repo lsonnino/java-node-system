@@ -9,7 +9,8 @@ public class TypeSystem {
         VOID,
         ANY,
         BOOLEAN,
-        NUMBER;
+        NUMBER,
+        ARRAY;
     }
 
     // Connecting the identifiers to the actual Data type classes
@@ -17,6 +18,7 @@ public class TypeSystem {
             new jns.system.Type(Type.VOID, VoidData.class),
             new jns.system.Type(Type.ANY, ObjectData.class),
             new jns.system.Type(Type.BOOLEAN, BooleanData.class),
-            new jns.system.Type(Type.NUMBER, NumberData.class)
+            new jns.system.Type(Type.NUMBER, NumberData.class),
+            new jns.system.Type(Type.ARRAY, ArrayData.class)
     };
 }

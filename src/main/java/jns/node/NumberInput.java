@@ -1,6 +1,6 @@
 package jns.node;
 
-import jns.system.*;
+import jns.system.NodeSystem;
 import jns.type.BooleanData;
 import jns.type.TypeSystem.Type;
 
@@ -12,15 +12,15 @@ import jns.type.TypeSystem.Type;
  * Outputs:
  *      * "Output": BooleanData: the same value as the "Value" property
  */
-public class BooleanInput extends BasicInput {
+public class NumberInput extends BasicInput {
     public static final String VALUE = "Value";
     public static final String OUTPUT = "Output";
 
-    public BooleanInput(NodeSystem nodeSystem) {
+    public NumberInput(NodeSystem nodeSystem) {
         this(nodeSystem, false);
     }
-    public BooleanInput(NodeSystem nodeSystem, boolean initialValue) {
-        super(nodeSystem, Type.BOOLEAN);
+    public NumberInput(NodeSystem nodeSystem, boolean initialValue) {
+        super(nodeSystem, Type.NUMBER);
 
         property(VALUE).set(new BooleanData(initialValue));
     }
