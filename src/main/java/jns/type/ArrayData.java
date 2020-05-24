@@ -1,6 +1,7 @@
 package jns.type;
 
 import jns.system.Data;
+import jns.system.DataException;
 
 /**
  * Generic double array Data type
@@ -34,6 +35,14 @@ public class ArrayData extends Data<Double[]> {
 
     @Override
     public <E extends Data> Double[] convert(E obj) {
+        try{
+            Double value = new NumberData().convert(obj);
+
+            // Conversion successful
+            return new Double[]{value};
+        }
+        catch(DataException ignore){} // Try something else
+
         return super.convert(obj);
     }
 }
