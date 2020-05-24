@@ -4,6 +4,7 @@ package jns.system;
  * Defines an input/output/property type. It is based on two values:
  *      * the identifier: an enumeration used as a shortcut when creating nodes to define IO types
  *      * the actual data class used internally to handle the data type
+ * Note that every node may not be compatible with every Type Systems
  */
 public class Type {
     private Enum identifier;
