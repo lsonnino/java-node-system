@@ -71,6 +71,7 @@ public class NodeSystem implements Serializable {
     /**
      * Execute the node tree ending with a specific root node
      * @param root a node instance with no output. It will be the end of the tree
+     * @throws NodeRuntimeException if no nodes are specified (or input is null)
      */
     public void run(Node root){
         if(root == null)

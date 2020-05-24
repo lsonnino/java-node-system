@@ -66,7 +66,7 @@ public abstract class Node implements Serializable {
      * Get an input io based on it's name. If input io's names are not unique, the correctness of this function cannot
      * be guaranteed
      * @param name the (unique) name of the io
-     * @return the io instance
+     * @return the io instance if it has been found, null otherwise
      */
     public IO getInput(String name){
         for (int i = 0; i < this.inputs.length; i++) {
@@ -79,7 +79,7 @@ public abstract class Node implements Serializable {
     /**
      * Get an input io based on it's unique id
      * @param id the io's id
-     * @return a corresponding io instance
+     * @return the io instance if it has been found, null otherwise
      */
     public IO getInput(int id){
         if(id < 0 || id >= this.inputs.length){
@@ -92,7 +92,7 @@ public abstract class Node implements Serializable {
      * Get an output io based on it's name. If output io's names are not unique, the correctness of this function cannot
      * be guaranteed
      * @param name the (unique) name of the io
-     * @return the io instance
+     * @return the io instance if it has been found, null otherwise
      */
     public IO getOutput(String name){
         for (int i = 0; i < this.outputs.length; i++) {
@@ -105,7 +105,7 @@ public abstract class Node implements Serializable {
     /**
      * Get an output io based on it's unique id
      * @param id the io's id
-     * @return a corresponding io instance
+     * @return the io instance if it has been found, null otherwise
      */
     public IO getOutput(int id){
         if(id < 0 || id >= this.outputs.length){
@@ -118,7 +118,7 @@ public abstract class Node implements Serializable {
      * Get a property io based on it's name. If properties io's names are not unique, the correctness of this function cannot
      * be guaranteed
      * @param name the (unique) name of the io
-     * @return the io instance
+     * @return the io instance if it has been found, null otherwise
      */
     public IO getProperty(String name){
         for (int i = 0; i < this.properties.length; i++) {
@@ -131,7 +131,7 @@ public abstract class Node implements Serializable {
     /**
      * Get a property io based on it's unique id
      * @param id the io's id
-     * @return a corresponding io instance
+     * @return the io instance if it has been found, null otherwise
      */
     public IO getProperty(int id){
         if(id < 0 || id >= this.properties.length){
@@ -162,6 +162,10 @@ public abstract class Node implements Serializable {
     public void connect(IO input, Node node, IO output){
         this.inputNodes[input.getId()] = new InputInterface(input, node, output);
     }
+    /**
+     * Disconnect the input's io. If the input was not connected, nothing happens
+     * @param input the input io instance to disconnect
+     */
     public void disconnect(IO input){
         this.inputNodes[input.getId()] = null;
     }
@@ -172,6 +176,8 @@ public abstract class Node implements Serializable {
      *            of this function cannot be guaranteed if the input io is referenced by it's name
      * @return a data packet the same type as the input io containing the requested information. If the input is connected
      *            to a different type output, the conversion is automatically handled (if possible)
+     *
+     * @throws NodeRuntimeException if the specified input was not connected
      */
     public Data<?> in(int id) {
         IO io = getInput(id);
@@ -213,6 +219,8 @@ public abstract class Node implements Serializable {
      * @param id, name, requested the property io's name, id or instance. If properties io's names are not unique, the correctness
      *            of this function cannot be guaranteed if the input io is referenced by it's name
      * @return a data packet the same type as the property io containing the requested information.
+     *
+     * @throws NodeRuntimeException if the specified property's id or name is invalid
      */
     public Data<?> property(int id) {
         IO io = getProperty(id);
@@ -246,6 +254,7 @@ public abstract class Node implements Serializable {
      *                  checked
      * @return a data of this node's requested output io containing the requested information. Data type conversions will
      *                  be automatically handled if possible
+     * @throws NodeRuntimeException if the requested output is invalid or if the node is already running
      */
     public abstract Data<?> out(IO requested);
     Data<?> run(){

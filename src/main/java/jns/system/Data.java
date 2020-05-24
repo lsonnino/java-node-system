@@ -21,6 +21,8 @@ public abstract class Data<T> implements Serializable {
     /**
      * Create an instance of the data type
      * @param tClass the object's class the data type is based on
+     * @throws DataException if the data type does not have an empty constructor or if an error occurred when instantiating
+                   the data type
      */
     public Data(Class<T> tClass){
         try {
@@ -54,6 +56,8 @@ public abstract class Data<T> implements Serializable {
      * @param c the data type's class
      * @param <X> the data type. It must have an empty constructor
      * @return an instance of the data type, created from it's empty constructor
+     * @throws DataException if the data type does not have an empty constructor or if an error occurred when instantiating
+     *              the data type
      */
     public static <X extends Data> X fromClass(Class<X> c){
         try {
@@ -111,6 +115,7 @@ public abstract class Data<T> implements Serializable {
      * @param obj a data type instance to convert
      * @param <E> a data type
      * @return the value the data type has been converted to (an instance of the object the current data type is based on)
+     * @throws DataException if the data type cannot be converted to the current data type
      */
     public <E extends Data> T convert(E obj){
         if(getType().isInstance(obj.get())){
