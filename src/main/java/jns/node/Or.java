@@ -1,6 +1,6 @@
 package jns.node;
 
-import jns.system.*;
+import jns.system.NodeSystem;
 
 /**
  * AND gate node
@@ -8,32 +8,32 @@ import jns.system.*;
  *      * "Input " + i: BooleanData, where i is the input number (starting from 1)
  * Properties: None
  * Outputs:
- *      * "Output": BooleanData: is equal to the logic AND between all the input
+ *      * "Output": BooleanData: is equal to the logic OR between all the input
  */
-public class And extends LogicGate {
+public class Or extends LogicGate {
     /**
-     * Creates an AND gate with two inputs
+     * Creates an OR gate with two inputs
      * @param nodeSystem the node system in use
      */
-    public And(NodeSystem nodeSystem) {
+    public Or(NodeSystem nodeSystem) {
         this(nodeSystem, 2);
     }
 
     /**
-     * Create an AND gate with any number of inputs
+     * Create an OR gate with any number of inputs
      * @param nodeSystem the node system in use
      * @param inputNumber the number of inputs
      */
-    public And(NodeSystem nodeSystem, int inputNumber) {
+    public Or(NodeSystem nodeSystem, int inputNumber) {
         super(nodeSystem, inputNumber);
     }
 
     @Override
     public boolean logic(boolean[] input) {
-        boolean result = true;
+        boolean result = false;
 
         for(boolean i : input){
-            result = result && i;
+            result = result || i;
         }
 
         return result;

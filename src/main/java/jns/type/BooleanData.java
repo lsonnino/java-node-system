@@ -16,6 +16,14 @@ public class BooleanData extends Data<Boolean> {
         super(Boolean.class, initialValue);
     }
 
+    /**
+     * Get the inverted data
+     * @return a BooleanData containing the inverted input
+     */
+    public BooleanData invert(){
+        return new BooleanData(! this.get());
+    }
+
     public <E extends Data> Boolean convert(E obj) {
         if(obj.get() instanceof Double){
             Double value = (Double) obj.get();
